@@ -1,8 +1,9 @@
 # Simple AGRICULTURE WEBSITE using Python
 
-Step 1: Download mongoDB   ( https://www.mongodb.com/try/download/community )
-Step 2: Download mongoDB Compass ( https://www.mongodb.com/try/download/compass )
-Step 3: For Weather API  ( https://openweathermap.org/api )
+1) Download mongoDB   ( https://www.mongodb.com/try/download/community )
+2) Download mongoDB Compass ( https://www.mongodb.com/try/download/compass )
+   { In mongoDB Compass Create, Database: agricultureDB, and in this database create collection,    Collection 1: users and Collection 2: contacts }
+4) For Weather API  ( https://openweathermap.org/api )
 
 # How to run project ( commands )
 1) cd agri-website
