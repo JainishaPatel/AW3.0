@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Weather</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+
+{% extends "base.html" %}
+
+{% block title %}Current Weather{% endblock %}
+
+{% block content %}
+
+    <h1>Current Weather</h1>
+    
+    <form method="POST" action="/weather">
+        <div class=city>
+        <label for="city">Enter City:</label></div>
+        
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Get Weather</button>
+        <br><br>
+        <button type="button" id="getLocationBtn">Use Current Location</button>
+      
+    </form>
+
+    {% if weather %}
+    <h2>Weather in {{ weather.city }}</h2>
+    <p>Temperature: {{ weather.temp }} °C</p>
+    <p>Condition: {{ weather.condition }}</p>
+    <p>Humidity: {{ weather.humidity }}%</p> <!-- Display Humidity -->
+    <p>Wind Speed: {{ weather.wind_speed }} m/s</p> <!-- Display Wind Speed -->
+    <p>Date and Time: {{weather.datetime}}</p>
+    {% endif %}
+
+
+    <script>
+        document.getElementById('getLocationBtn').onclick = function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    // Use the latitude and longitude to get the city
+                    fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`)
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('city').value = data.city || data.locality || '';
+                            document.getElementById('weatherForm').submit();
+                        })
+                        .catch(err => console.error(err));
+                }, function(error) {
+                    console.error("Geolocation error: " + error.message);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        };
+    </script>
+
+<h2>Back to Dashboard</h2>
+
+   
+
+    
+    <a href="/dashboard" class="d">Go Back</a>
+
+
+    {% endblock %}
+
+    
+</body>
+</html>

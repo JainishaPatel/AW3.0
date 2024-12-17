@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+{% extends "base.html" %}
+
+{% block title %}Crop Prediction{% endblock %}
+
+{% block content %}
+
+<h1>Crop Prediction Based on Weather</h1>
+<br>
+<form method="POST" action="/crop_prediction" id="cropPredictionForm">
+    <div class="city">
+    <label for="city">Enter City:</label></div>
+    <input type="text" id="city" name="city" required>
+    <button type="submit">Get Crop Suggestions</button>
+    <br><br><br>
+    <button type="button" id="getCropLocationBtn">Use Current Location</button>
+</form>
+
+{% if prediction %}
+<h2>Recommended Crops:</h2>
+<ul>
+    {% for crop in prediction %}
+        <li>{{ crop.Crop_Name }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+    {% if prediction is not none %}
+        <p>No crops found for the given weather conditions.</p>
+    {% endif %}
+{% endif %}
+
+<script>
+    document.getElementById('getCropLocationBtn').onclick = function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                // Use the latitude and longitude to get the city
+                fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('city').value = data.city || data.locality || '';
+                        document.getElementById('cropPredictionForm').submit();
+                    })
+                    .catch(err => console.error(err));
+            }, function(error) {
+                console.error("Geolocation error: " + error.message);
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    };
+</script>
+
+
+
+<h2>Back to Dashboard</h2>
+
+
+    <a href="/dashboard" class="d">Go Back</a>
+
+
+{% endblock %}
+
+
+</body>
+</html>

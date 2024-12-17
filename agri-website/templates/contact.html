@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <div class="contact-section">
+            <div class="contact-image-container">
+                <img src="{{ url_for('static', filename='contact.png') }}" alt="Contact Us" class="contact-image">
+            </div>
+            <div class="contact-form">
+                <h2>Get in Touch</h2>
+                <form method="POST" action="/contact">
+
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                  
+                    
+                    <button type="submit" class="bu">Send Message</button>
+                </form>
+                
+            </div>
+        </div>
+ 
+            <br><br>
+
+        <a href="/dashboard" class="but">Back to Dashboard</a>
+        
+        <div class="contact-info">
+            <h2>Our Office</h2>
+            <p>72 Agriculture Lane,<br>
+            Mumbai, Country India<br>
+            Phone: 991234678<br>
+            Email: agritech15@gmail.com</p>
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+</html>

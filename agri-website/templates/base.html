@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AgriTech Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+     <!-- Google Translate Widget -->
+     <div id="google_translate_element"></div>
+
+     <script type="text/javascript">
+         function googleTranslateElementInit() {
+             new google.translate.TranslateElement({
+                 pageLanguage: 'en',
+                 includedLanguages: 'en,hi,mr,gu,ne,pa,ta,te,th,tr,ur,ru,sd,id,ja,ko,la,ml,es,fr,bn,zh,de,el,af,ar,bh,it,kn,ks,fa,pt,sa,sd,si', // Add your desired languages here
+                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+             }, 'google_translate_element');
+         }
+     </script>
+     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/login">Login</a></li>
+            {% if session['username'] %}
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/multilanguage">Language  Selector</a></li>
+               
+                <li><a href="/logout">Logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

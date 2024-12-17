@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Multilingual Agriculture Website</title>
+</head>
+<body>
+
+<!-- Google Translate Widget -->
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,mr,gu,ne,pa,ta,te,th,tr,ur,ru,sd,id,ja,ko,la,ml,es,fr,bn,zh,de,el,af,ar,bh,it,kn,ks,fa,pt,sa,sd,si', // Add your desired languages here
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Your website content goes here -->
+<div class="container">
+
+{% extends "base.html" %}
+
+{% block title %}Multilingual Agriculture Website{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Agri-Tech Website</h1>
+    <p>This platform helps farmers and non-farmers get weather data and crop predictions tailored to their needs.</p>
+
+    <h2>Features</h2>
+    <ul>
+        <li>Real-time Weather Updates</li>
+        <li>Crop Prediction Based on Weather</li>
+        <li>Information in various languages</li>
+    </ul>
+    
+    <a href="/dashboard" class="b">Go to Dashboard</a>
+</div>
+{% endblock %}
+
+</body>
+</html>

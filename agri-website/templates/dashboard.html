@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <img src="{{ url_for('static', filename='image.avif') }}" alt="Dashboard" class="header-image">
+
+    <h1>Welcome to Your Dashboard, {{ session['username'] }}!</h1>
+    <p>This is your personal dashboard where you can explore various features.</p>
+
+    <div class="dashboard-sections">
+        <!-- Weather Section -->
+        <div class="section">
+            <img src="{{ url_for('static', filename='weather.avif') }}" alt="Weather" class="section-image">
+            <h2>Weather Information</h2>
+            <p>Get real-time weather data for your location. Know the temperature, humidity, and more.</p>
+            <a href="/weather" class="btn">Check Weather</a>
+        </div>
+
+        <!-- Crop Prediction Section -->
+        <div class="section">
+            <img src="{{ url_for('static', filename='crop.jpg') }}" alt="Crop Prediction" class="section-image">
+            <h2>Crop Prediction</h2>
+            <p>Based on the current weather, receive crop suggestions that are best suited for your location.</p>
+            <a href="/crop_prediction" class="btn">Get Crop Suggestions</a>
+        </div>
+
+        <!-- Language Section -->
+        <div class="section">
+            <img src="{{ url_for('static', filename='language.jpg') }}" alt="Language Selection" class="section-image">
+            <h2>Language Options</h2>
+            <p>Switch between different local languages to interact with the website in your preferred language.</p>
+            <a href="/multilanguage" class="btn">Select Language</a>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-sections">
+            <!-- About Us Section -->
+            <div class="footer-section">
+                <img src="{{ url_for('static', filename='about_us.jpg') }}" alt="About Us" class="footer-image">
+                <h2>About Us</h2>
+                <p>Learn more about our team, mission, and how we aim to support sustainable agriculture.</p>
+                <br>
+                <a href="/about" class="btn">Learn More</a>
+            </div>
+
+            <!-- Contact Us Section -->
+            <div class="footer-section">
+                <img src="{{ url_for('static', filename='contact_us.png') }}" alt="Contact Us" class="footer-image">
+                <h2>Contact Us</h2>
+                <p>Have questions or feedback? Reach out to us anytime through our contact form.</p>
+                <br>
+                <a href="/contact" class="btn">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+</body>
+</html>

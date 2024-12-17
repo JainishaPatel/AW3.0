@@ -1,0 +1,584 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+/* Navigation Bar */
+nav {
+    background-color: #a499e4;
+    padding: 15px;
+    border-radius:5px ;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #130e30;
+}
+
+
+/* Container for Pages */
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Headings */
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+
+/* Header Image Styles */
+.header-image {
+    width: 100%; /* Make the image responsive */
+    height: 500px; /* Maintain aspect ratio */
+    max-height: 300px; /* Limit height for better layout */
+    object-fit: revert-layer;; /* Ensure the image covers the area without distortion */
+   
+}
+
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+label {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+   
+}
+
+
+/* Input Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 96%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 3px solid #a499e4;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+
+/* Button Styling */
+button[type="submit"], button#useCurrentLocation {
+    padding: 10px 20px;
+    background-color: #a499e4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+    width: 30%;
+    margin-left: 250px;
+    font-family: Arial, sans-serif;
+}
+
+button[type="submit"]:hover{
+    background-color: #5b5483;
+ 
+}
+
+button[type="button"]:hover, button#getCropLocationBtn:hover {
+    background-color: #5b5483;
+    margin-left: 35%;
+}
+
+input[type="text"]#city{
+    width: 38%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 3px solid #a499e4;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    align-items: center;
+    margin-left: 30%;
+}
+
+.city{
+    margin-left: 29.5%;
+    padding: 10px;
+}
+
+
+#getCropLocationBtn{
+    padding: 10px 20px;
+    background-color: #a499e4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+    width: 30%;
+    margin-left: 35%;
+    font-family: Arial, sans-serif;
+}
+
+
+
+button[type="submit"], button#useCurrentLocation {
+    font-size: 1rem;
+    padding: 8px 15px;
+    margin-left: 35%;
+   
+}
+
+
+button[type="button"], button#getLocationBtn{
+    padding: 10px 20px;
+    background-color: #a499e4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+    width: 30%;
+    margin-left: 35%;
+    font-family: Arial, sans-serif;
+    
+}
+
+
+button[type="button"]:hover, button#getLocationBtn:hover {
+    background-color: #5b5483;
+    margin-left: 35%;
+}
+
+
+/* Recommended Crops Section */
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    text-align: center;
+}
+
+li {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 10px 0; /* Space between items */
+}
+
+
+/* No Crops Found Message */
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Dashboard Sections */
+.dashboard-sections {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 40px 0;
+    margin: 0 auto;
+}
+
+.section {
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    margin: 10px;
+}
+
+.section-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.section h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.section p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #7f8c8d;
+}
+
+.btn {
+    text-decoration: none;
+    color: white;
+    background-color: #a499e4;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #5b5483;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-sections {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* General Styles for Round Images */
+ .footer-image {
+    width: 150px; /* Adjust as necessary */
+    height: 150px; /* Adjust as necessary */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for a 3D effect */
+    margin-bottom: 15px;
+}
+
+
+/* Footer Styles - Smaller Height */
+footer {
+    background-color: #34495e;
+    color: white;
+    padding: 10px 5px; /* Reduced padding for smaller height */
+    text-align: center;
+    font-size: 14px; /* Reduced font size overall */
+}
+
+.footer-sections {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 30%;
+    text-align: center;
+    padding: 5px; /* Smaller padding */
+    background-color: #2c3e50;
+    border-radius: 6px; /* Slightly smaller border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow for a less bulky look */
+    margin: 5px;
+}
+
+.footer-section h2 {
+    font-size: 16px; /* Smaller heading font size */
+    margin-top: 5px;
+    color:white;
+}
+
+.footer-section p {
+    font-size: 12px; /* Smaller paragraph text */
+    margin-bottom: 5px;
+    color: rgb(208, 215, 223);
+}
+
+.footer-section .btn {
+    padding: 6px 12px; /* Smaller button size */
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px; /* Smaller button border radius */
+    font-size: 12px; /* Reduced font size for button */
+}
+
+.footer-section .btn:hover {
+    background-color: #071727;
+}
+
+
+/* Make the footer images smaller and round */
+.footer-image {
+    width: 70px; /* Smaller image size */
+    height: 70px;
+    border-radius: 50%; /* Round images */
+    margin-bottom: 10px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-sections {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.about-container, .contact-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.about-section, .contact-section {
+    display: flex;
+    align-items: flex-start; /* Align items to the start */
+    margin-top: 20px;
+    justify-content: center;
+    
+
+}
+
+.about-image-container, .contact-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Allow images to take equal space */
+}
+
+
+.about-image, .contact-image {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%; /* Round image */
+    margin: 0 20px  ; /* Center the image */
+    display: block; /* Ensure block display for centering */
+    margin-top: 0%;
+    margin-left: 0%;
+}
+
+
+.contact-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; /* Round image */
+    margin: 0 20px  ; /* Center the image */
+    display: block; /* Ensure block display for centering */
+    margin-top: 0%;
+    margin-left: 0%;
+}
+
+.about-text{
+    flex: 2; /* Allow text sections to take more space */
+    padding: 20px; /* Add padding around text */
+    text-align: left; /* Left align text */
+    font-family: Arial, sans-serif;
+}
+
+.contact-form {
+    flex: 2; /* Allow text sections to take more space */
+    padding: 25px; /* Add padding around text */
+    text-align: left; /* Left align text */
+    background-color: #a499e4;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    
+ 
+}
+
+.about-values {
+    text-align: left; /* Left align values */
+    margin-top: 30px; /* Space above values */
+}
+
+.about-values ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.contact-info {
+    text-align: left; /* Left align contact info */
+    margin-top: 30px; /* Space above info */
+}
+
+.contact-info h2 {
+    margin-bottom: 10px; /* Space below heading */
+}
+
+
+
+#message{
+    border-radius: 3px;
+    border: 0;
+   
+}
+
+
+/* Buttons */
+.but {
+    background-color: #a499e4; 
+    border: 1px;
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Font size */
+    margin: 10px 2px;
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Transition for hover effect */
+    margin-left:1cm;
+    font-family: Arial, sans-serif;
+    
+}
+
+.but:hover {
+    background-color: #5b5483; 
+}
+
+.mission-values {
+    margin-bottom: 20px; /* Space between sections */
+}
+
+button.bu{
+    background-color: #5b5483;
+}
+
+button.bu:hover {
+    background-color: #0b013f; 
+}
+
+
+#google_translate_element {
+    margin: 20px;
+    text-align: center;
+
+}
+
+
+.d{
+    
+    background-color: #a499e4; 
+    border: 1px;
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Font size */
+    margin-left: 19cm;
+    
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Transition for hover effect */
+   
+    font-family: Arial, sans-serif;
+}
+
+.d:hover{
+    background-color: #5b5483;
+}
+
+
+.b{
+    
+    background-color: #a499e4; 
+    border: 1px;
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Font size */
+    margin-left: 7.3cm;
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Transition for hover effect */
+   
+    font-family: Arial, sans-serif;
+}
+
+.b:hover {
+    background-color: #5b5483; 
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .button-container a{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button-container a{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
